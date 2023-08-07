@@ -4,7 +4,7 @@ const isMobile = window.matchMedia("(max-width: 768px)").matches;
 function showAlertOnLoad() {
   // Check if the device is mobile and in portrait mode
   if (isMobile && window.orientation === 0) {
-    alert("Please rotate your mobile to horizontal orientation for the best experience.");
+    alert("Please rotate your mobile to horizontal orientation for the best experience.Too lazy to make this website mobile responsive 🙈😅");
   }
 }
 
