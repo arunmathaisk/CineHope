@@ -6,10 +6,9 @@ for (let i = 0; i < seatrow; i++) {
     royal.innerHTML = royal.innerHTML + `<div class='row' id='row-${i}'><span class="light-grey-text">${String.fromCharCode(65 + i)} &nbsp; &nbsp; </span></div>&nbsp;`;
     currentrow = document.getElementById(`row-${i}`);
     for (let j = 0; j < seatcol; j++) {
-        currentrow.innerHTML = currentrow.innerHTML + `<a class='seat pointer'>${j + 1}</a>`;
+        currentrow.innerHTML = currentrow.innerHTML + `<a id='${String.fromCharCode(65 + i)+(j+1)}' class='seat pointer'>${j + 1}</a>`;
     }
 }
-
 
 let club = document.getElementById("seats-club");
 let club_seatrow = Number(club.getAttribute("club_seatrow"));
@@ -26,11 +25,11 @@ for (let i = 0; i < club_seatrow; i++) {
             if (j > 4) {
 
                 if (j == 4) {
-                    club_currentrow.innerHTML = club_currentrow.innerHTML + `<a class='seat pointer'>${j + 1}</a> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`;
+                    club_currentrow.innerHTML = club_currentrow.innerHTML + `<a id='${String.fromCharCode(66 + i)+(j+1)}' class='seat pointer'>${j + 1}</a> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`;
 
                 }
                 else {
-                    club_currentrow.innerHTML = club_currentrow.innerHTML + `<a class='seat pointer'>${j + 1}</a>`;
+                    club_currentrow.innerHTML = club_currentrow.innerHTML + `<a id='${String.fromCharCode(66 + i)+(j+1)}' class='seat pointer'>${j + 1}</a>`;
                 }
             }
             else {
@@ -44,23 +43,17 @@ for (let i = 0; i < club_seatrow; i++) {
         else {
 
             if (j == 4) {
-                club_currentrow.innerHTML = club_currentrow.innerHTML + `<a class='seat pointer'>${j + 1}</a> &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;`;
+                club_currentrow.innerHTML = club_currentrow.innerHTML + `<a id='${String.fromCharCode(66 + i)+(j+1)}' class='seat pointer'>${j + 1}</a> &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;`;
 
             }
             else {
-                club_currentrow.innerHTML = club_currentrow.innerHTML + `<a class='seat pointer'>${j + 1}</a>`;
+                club_currentrow.innerHTML = club_currentrow.innerHTML + `<a id='${String.fromCharCode(66 + i)+(j+1)}' class='seat pointer'>${j + 1}</a>`;
             }
 
         }
 
     }
 }
-
-
-//
-//
-//
-//
 
 
 let front = document.getElementById("seats-front");
@@ -78,11 +71,11 @@ for (let i = 0; i < front_seatrow; i++) {
             if (j > 4) {
 
                 if (j == 4) {
-                    front_currentrow.innerHTML = front_currentrow.innerHTML + `<a class='seat pointer'>${j + 1}</a> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`;
+                    front_currentrow.innerHTML = front_currentrow.innerHTML + `<a id='${String.fromCharCode(77 + i)+(j+1)}' class='seat pointer'>${j + 1}</a> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`;
 
                 }
                 else {
-                    front_currentrow.innerHTML = front_currentrow.innerHTML + `<a class='seat pointer'>${j + 1}</a>`;
+                    front_currentrow.innerHTML = front_currentrow.innerHTML + `<a id='${String.fromCharCode(77 + i)+(j+1)}' class='seat pointer'>${j + 1}</a>`;
                 }
             }
             else {
@@ -96,14 +89,29 @@ for (let i = 0; i < front_seatrow; i++) {
         else {
 
             if (j == 4) {
-                front_currentrow.innerHTML = front_currentrow.innerHTML + `<a class='seat pointer'>${j + 1}</a> &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;`;
+                front_currentrow.innerHTML = front_currentrow.innerHTML + `<a id='${String.fromCharCode(77 + i)+(j+1)}'  class='seat pointer'>${j + 1}</a> &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;`;
 
             }
             else {
-                front_currentrow.innerHTML = front_currentrow.innerHTML + `<a class='seat pointer'>${j + 1}</a>`;
+                front_currentrow.innerHTML = front_currentrow.innerHTML + `<a  id='${String.fromCharCode(77 + i)+(j+1)}' class='seat pointer'>${j + 1}</a>`;
             }
 
         }
 
     }
 }
+
+fetch('https://script.google.com/macros/s/AKfycbxnDIU8g_Nkx0JUdWFaFY5GSh_-0yl_v8iipXF7ED6tr6zssTrGUDffhru0M9WUEnZd/exec')
+  .then(response => response.json())
+  .then(data => {
+    document.body.style.display='block';
+    data.forEach(item => {
+        let el = document.getElementById(item.name);
+        el.style.backgroundColor='lightgreen';
+      });
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+  
+
