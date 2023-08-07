@@ -50,9 +50,6 @@ nav  .nav-item-container{
 .pointer{
     cursor:pointer;
 }
-.showmobile{
-    display:none !important;
-}
 .back-logo{
     font-size:20pt;
     color:#fff;
@@ -87,7 +84,7 @@ header{
 .row{
     padding:2px;
 }
-.seat{
+.seat {
     width: 10px !important;
     height: 10px !important;
     border:1px solid #eee;
@@ -96,19 +93,6 @@ header{
     padding:5px;
     margin:2px;
     text-align: center;
+    
 }
-@media screen and (max-width:768px){
-    .nav-item-container:nth-child(2),.num-of-tickets{
-        display:none !important;
-    }
-    .showmobile{
-        display:block !important;
-    }
-    .showmobile.nav-item-container{
-        display:inline-block !important;
-    }
-    .content{
-        padding:5px;
-        overflow-x:scroll;
-    }
-}
+  

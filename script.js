@@ -1,3 +1,17 @@
+const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+// Function to show alert on page load
+function showAlertOnLoad() {
+  // Check if the device is mobile and in portrait mode
+  if (isMobile && window.orientation === 0) {
+    alert("Please rotate your mobile to horizontal orientation for the best experience.");
+  }
+}
+
+// Add event listener to window
+window.addEventListener("load", showAlertOnLoad);
+
+
 let royal = document.getElementById("seats-royal");
 let seatrow = Number(royal.getAttribute("seatrow"));
 let seatcol = Number(royal.getAttribute("seatcol"));
@@ -25,7 +39,7 @@ for (let i = 0; i < club_seatrow; i++) {
             if (j > 4) {
 
                 if (j == 4) {
-                    club_currentrow.innerHTML = club_currentrow.innerHTML + `<a id='${String.fromCharCode(66 + i)+(j+1)}' class='seat pointer'>${j + 1}</a> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`;
+                    club_currentrow.innerHTML = club_currentrow.innerHTML + `<a id='${String.fromCharCode(66 + i)+(j+1)}' class='seat pointer'>${j + 1}</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`;
 
                 }
                 else {
